@@ -1,0 +1,50 @@
+<style>
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-container div {
+    margin-bottom: 10px;
+  }
+
+  @media (max-width: 600px) {
+    .form-container {
+      width: 90%;
+    }
+  }
+</style>
+
+<div class="form-container">
+  <h2>Sign Up</h2>
+
+  <%= form_with(url: v1_sign_up_path, method: :post) do |form| %>
+    <div>
+      <%= form.label :name %>
+      <%= form.text_field :name, required: true %>
+    </div>
+
+    <div>
+      <%= form.label :email %>
+      <%= form.email_field :email, required: true %>
+    </div>
+
+    <div>
+      <%= form.label :password %>
+      <%= form.password_field :password, required: true %>
+    </div>
+
+    <div>
+      <%= form.label :password_confirmation %>
+      <%= form.password_field :password_confirmation, required: true %>
+    </div>
+
+    <div>
+      <%= form.submit "Sign Up" %>
+    </div>
+  <% end %>
+</div>
